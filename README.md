@@ -1,4 +1,1 @@
-grunt-boilerplate
-=================
-
 Grunt Boilerplate.
