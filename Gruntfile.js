@@ -1,38 +1,84 @@
 module.exports = function(grunt) {
+    /*
+        Grunt Requirements.
+        =========================================
 
-  // Utility to load the different option files
-  // based on their names
-  function loadConfig(path) {
-    var glob = require('glob');
-    var object = {};
-    var key;
+        1. Ruby (windows only as Mac OS X already has this installed) - http://rubyinstaller.org/
+        2. Node.js and Node's package manager system (NPM) - http://nodejs.org/download/
+        3. Grunt CLI (command line interface) - http://gruntjs.com/getting-started
 
-    glob.sync('*', {cwd: path}).forEach(function(option) {
-      key = option.replace(/\.js$/,'');
-      object[key] = require(path + option);
-    });
+        Grunt installation
+        =========================================
 
-    return object;
-  }
+        1. npm install -g grunt-cli
 
-  // Initial config
-  var config = {
-    pkg: grunt.file.readJSON('package.json')
-  }
+        Grunt (within the same directory as the package.json file)
 
-  // Load tasks from the tasks folder
-  grunt.loadTasks('tasks');
+        1. npm install
+        2. grunt
 
-  // Load all the tasks options in tasks/options base on the name:
-  // watch.js => watch{}
-  grunt.util._.extend(config, loadConfig('./tasks/options/'));
+        Grunt run dev task
 
-  grunt.initConfig(config);
+        1. grunt dev
 
-  require('load-grunt-tasks')(grunt);
+        Useful links
+        =========================================
 
-  // Default Task is basically a rebuild
-  grunt.registerTask('default', ['concat', 'uglify', 'compass', 'imagemin']);
-  grunt.registerTask('dev', ['watch']);
+        http://seesparkbox.com/foundry/love_your_frontend_tools_windows#node
+    */
 
+
+    /*
+     * Utility to load the different option files
+     * based on their names
+     */
+    function loadConfig(path) {
+        var glob = require('glob'),
+            object = {},
+            key;
+
+        glob.sync('*', {cwd: path}).forEach(function(option) {
+            key = option.replace(/\.js$/,'');
+            object[key] = require(path + option);
+        });
+
+        return object;
+    }
+
+    /*
+     * Initial config
+     */
+    var config = {
+        pkg: grunt.file.readJSON('package.json')
+    }
+
+    /*
+     * Load tasks from the tasks folder
+     */
+    grunt.loadTasks('tasks');
+
+    /*
+     * Load all the tasks options in tasks/options base on the name:
+     * watch.js => watch{}
+     */
+    grunt.util._.extend(config, loadConfig('./tasks/options/'));
+
+    grunt.initConfig(config);
+
+    require('load-grunt-tasks')(grunt);
+
+    /*
+     * Register Tasks
+     * Default Task is basically a rebuild
+     */
+    grunt.registerTask('default', [
+        'concat',
+        'uglify',
+        'compass',
+        'imagemin'
+    ]);
+
+    grunt.registerTask('dev', [
+        'watch'
+    ]);
 };
