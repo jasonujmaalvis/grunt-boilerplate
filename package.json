@@ -1,19 +1,24 @@
 {
     "name": "Project-Name",
-    "version": "0.1.0",
-    "Author": "Jason Alvis",
+    "version": "1.0.0",
+    "author": "Jason Alvis",
     "description": "This is a project set-up using Grunt to take care of some standard tasks",
+    "keywords": [
+        "grunt",
+        "boilerplate"
+    ],
+    "contributors": [
+        "Jason Alvis"
+    ],
+    "license": "MIT",
     "devDependencies": {
         "grunt": "~0.4.1",
-        "glob": "~3.2.8",
         "grunt-contrib-uglify": "~0.2.2",
         "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-jshint": "~0.7.2",
+        "grunt-contrib-watch": "~0.5.3",
         "grunt-contrib-compass": "~0.7.2",
         "grunt-contrib-imagemin": "~0.1.2",
-        "grunt-contrib-watch": "~0.5.3",
-        "grunt-contrib-jshint": "~0.7.2"
-    },
-    "dependencies": {
-        "load-grunt-tasks": "~0.2.0"
+        "load-grunt-config": "*"
     }
 }

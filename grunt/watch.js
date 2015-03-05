@@ -1,12 +1,16 @@
 module.exports = {
-    options: {
-        livereload: true,
+    grunt: {
+        files: ['Gruntfile.js'],
+        options: {
+            reload: true
+        }
     },
     scripts: {
-        files: ['js/*.js'],
+        files: ['js/**/*.js'],
         tasks: ['jshint', 'concat', 'uglify'],
         options: {
             spawn: false,
+            livereload: true
         }
     },
     css: {
@@ -23,4 +27,4 @@ module.exports = {
             spawn: false,
         }
     }
-}
+};
