@@ -1,30 +1,22 @@
 module.exports = {
-    grunt: {
-        files: ['Gruntfile.js'],
-        options: {
-            reload: true
-        }
-    },
-    scripts: {
-        files: ['js/**/*.js'],
-        tasks: ['jshint', 'concat', 'uglify'],
-        options: {
-            spawn: false,
-            livereload: true
-        }
-    },
-    css: {
-        files: ['scss/**/*.scss'],
-        tasks: ['compass'],
-        options: {
-            spawn: false,
-        }
-    },
-    images: {
-        files: ['images/**/*.{png,jpg,gif}', 'images/*.{png,jpg,gif}'],
-        tasks: ['imagemin'],
-        options: {
-            spawn: false,
-        }
+  grunt: {
+    files: ['Gruntfile.js'],
+    options: {
+      reload: true
     }
+  },
+  sass: {
+    files: 'scss/**/*.scss',
+    tasks: ['sass'],
+    options: {
+      livereload: true
+    }
+  },
+  scripts: {
+    files: ['js/**/*.js'],
+    tasks: ['jshint', 'concat', 'uglify'],
+    options: {
+      livereload: true
+    }
+  }
 };
