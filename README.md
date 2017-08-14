@@ -1,3 +1,3 @@
-<h1>Grunt Boilerplate</h1>
+#Grunt Boilerplate
 
 The start to any project.
